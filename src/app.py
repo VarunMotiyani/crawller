@@ -6,6 +6,11 @@ import json
 import asyncio
 from typing import Dict, List
 import pandas as pd
+import sys
+
+
+if sys.platform.startswith("win"):
+    asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
 
 from crawler import WebCrawler
 from feature_extractor import FeatureExtractor
@@ -24,7 +29,7 @@ st.set_page_config(
 if 'crawled_data' not in st.session_state:
     st.session_state.crawled_data = None
 if 'analysis_results' not in st.session_state:
-    st.session_state.analysis_results = None
+    st.session_state.analysis_results = []
 
 def save_crawled_data(data: List[Dict], output_dir: str = "crawled_data") -> str:
     """Save crawled data to JSON file."""
@@ -133,7 +138,7 @@ def main():
                     st.error("Failed to crawl website")
                     return
             
-            with st.spinner("Analyzing features with GPT-4..."):
+            with st.spinner("Analyzing features with GPT-4o-mini..."):
                 # Initialize feature extractor
                 extractor = FeatureExtractor(api_key=api_key)
                 
@@ -144,8 +149,9 @@ def main():
                     st.error(f"Error analyzing site: {str(e)}")
                     st.code(json.dumps(crawled_data[:2], indent=2))  # Show the first 2 pages for debugging
                     raise
-                st.session_state.analysis_results = analysis_results
-                
+                # st.session_state.analysis_results = analysis_results
+                # Append the new results to the history
+                st.session_state.analysis_results.append(analysis_results)
                 # Display results
                 display_analysis_results(analysis_results)
                 
@@ -157,7 +163,9 @@ def main():
     if st.session_state.analysis_results:
         st.write("---")
         st.subheader("Previous Analysis Results")
-        display_analysis_results(st.session_state.analysis_results)
+        for i, result in enumerate(st.session_state.analysis_results[:-1]):  # Exclude the latest result
+            st.write(f"### Analysis {i + 1}")
+            display_analysis_results(result)
 
 if __name__ == "__main__":
     main() 
