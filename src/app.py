@@ -20,7 +20,7 @@ load_dotenv()
 
 # Set page config
 st.set_page_config(
-    page_title="Web Feature Analyzer",
+    page_title="Crawller - Web Feature Analyzer",
     page_icon="🔍",
     layout="wide"
 )
@@ -91,7 +91,7 @@ def display_analysis_results(results: Dict):
                     st.write(f"• {feature}")
 
 def main():
-    st.title("Web Feature Analyzer")
+    st.title("🕸️ Crawller - Web Feature Analyzer")
     st.write("Analyze website features and workflows using GPT-4")
     
     # Input fields
