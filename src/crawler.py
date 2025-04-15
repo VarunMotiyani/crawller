@@ -56,8 +56,9 @@ class WebCrawler:
             parsed_url = urlparse(url)
             base_domain = urlparse(self.base_url).netloc
             return (
-                parsed_url.scheme in ['http', 'https'] and
-                parsed_url.netloc.endswith(base_domain)  # allow subdomains
+                parsed_url.scheme in ['http', 'https'] or not parsed_url.scheme
+
+                # and parsed_url.netloc.endswith(base_domain)  # allow subdomains
             )
         except Exception as e:
             self.logger.error(f"Error validating URL {url}: {str(e)}")
@@ -181,6 +182,9 @@ class WebCrawler:
             await page.wait_for_load_state("networkidle")
             content = await page.content()
             soup = BeautifulSoup(content, 'html.parser')
+
+            raw_links = [a['href'] for a in soup.find_all('a', href=True)]
+            self.logger.debug(f"[extract_links] Raw links found on {current_url}: {raw_links}")
             
             links = []
             for a in soup.find_all('a', href=True):
@@ -197,7 +201,8 @@ class WebCrawler:
                         # Track link depth
                         self.url_depth[normalized_url] = self.url_depth[current_url] + 1
                         links.append(normalized_url)
-            
+
+            self.logger.debug(f"[extract_links] Found {len(links)} links on {current_url}")
             return list(set(links))
         except Exception as e:
             self.logger.error(f"Error extracting links: {str(e)}")
@@ -331,6 +336,7 @@ class WebCrawler:
                 response = await page.goto(url, timeout=self.timeout, wait_until="networkidle")
                 
                 if response and response.status == 200:
+                    self.logger.info(f"[crawl_page] Successfully crawled: {url}")
                     self.visited_urls.add(url)
                     
                     # Extract data and links
@@ -345,6 +351,7 @@ class WebCrawler:
                     # Extract and add new links to the queue
                     links = await self.extract_links(page, url)
                     self.to_visit.update(links)
+                    self.logger.debug(f"[crawl_page] Added {len(links)} new links to queue from {url}")
                     
                     break  # Success, exit retry loop
                 else:
@@ -399,9 +406,11 @@ class WebCrawler:
                 while self.to_visit and len(self.visited_urls) < self.max_pages:
                     # Get the next URL to visit
                     next_url = self.to_visit.pop()
+                    self.logger.debug(f"[start_crawling] Processing URL: {next_url}")
                     
                     # Skip if already visited or failed
                     if next_url in self.visited_urls or next_url in self.failed_urls:
+                        self.logger.debug(f"[start_crawling] Skipping already visited/failed URL: {next_url}")
                         continue
                     
                     # Skip if depth is too deep (optional)
@@ -417,6 +426,7 @@ class WebCrawler:
                 self.logger.info(f"\nCrawling completed!")
                 self.logger.info(f"Total pages crawled: {len(self.visited_urls)}")
                 self.logger.info(f"Failed URLs: {len(self.failed_urls)}")
+                self.logger.info(f"[start_crawling] Remaining URLs in queue: {len(self.to_visit)}")
                 # self.logger.info(f"Results saved to: {self.output_dir}/crawled_data.json")
                 
             return self.results
