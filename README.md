@@ -200,4 +200,21 @@ Contributions are welcome! Please follow these steps:
 
 Thank you for contributing!
 
+---
+
+## 📸 Screenshots
+
+### 🔘 Streamlit Home Interface
+![Streamlit Home](src/images/image1.png)
+
+---
+
+### 🕷️ Crawling Results Preview
+![Crawling Results](src/images/image2.png)
+
+---
+
+### 🧠 Feature Analysis Report
+![Feature Report](src/images/image3.png)
+
 
