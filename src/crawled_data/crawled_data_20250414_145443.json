@@ -1,0 +1,37 @@
+[
+  {
+    "url": "https://juice-shop.herokuapp.com/#/",
+    "title": "OWASP Juice Shop",
+    "content": "OWASP Juice Shop This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait! Me want it! OWASP Juice Shop Account exit_to_app Login Contact feedback Customer Feedback Company business_center About Us camera Photo Wall Score Board GitHub OWASP Juice Shop v17.2.0 menu OWASP Juice Shop close search account_circle Account language EN All Products Apple Juice (1000ml) 1.99¤ Apple Pomace 0.89¤ Banana Juice (1000ml) 1.99¤ Only 1 left Best Juice Shop Salesman Artwork 5000¤ Carrot Juice (1000ml) 2.99¤ Eggfruit Juice (500ml) 8.99¤ Fruit Press 89.99¤ Green Smoothie 1.99¤ Only 1 left Juice Shop \"Permafrost\" 2020 Edition 9999.99¤ Lemon Juice (500ml) 2.99¤ Only 3 left Melon Bike (Comeback-Product 2018 Edition) 2999¤ Sold Out OWASP Juice Shop \"King of the Hill\" Facemask 13.49¤ Items per page: 12 1 – 12 of 36 Open side menu Choose language Click for more information Launch a tutorial to get you started hacking the Juice Shop. Language has been changed to English Force page reload Welcome to OWASP Juice Shop! Being a web application with a vast number of intended security vulnerabilities, the OWASP Juice Shop is supposed to be the opposite of a best practice or template application for web developers: It is an awareness, training, demonstration and exercise tool for security risks in modern web applications. The OWASP Juice Shop is an open-source project hosted by the non-profit Open Worldwide Application Security Project (OWASP) and is developed and maintained by volunteers. Check out the link below for more information and documentation on the project. https://owasp-juice.shop school Help getting started visibility_off Dismiss",
+    "forms": [],
+    "links": [
+      "https://juice-shop.herokuapp.com/#/login",
+      "https://juice-shop.herokuapp.com/#/contact",
+      "https://juice-shop.herokuapp.com/#/about",
+      "https://juice-shop.herokuapp.com/#/photo-wall",
+      "https://juice-shop.herokuapp.com/#/score-board",
+      "https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop"
+    ]
+  },
+  {
+    "url": "https://juice-shop.herokuapp.com/#/",
+    "title": "OWASP Juice Shop",
+    "content": "OWASP Juice Shop This website uses fruit cookies to ensure you get the juiciest tracking experience. But me wait! Me want it! OWASP Juice Shop Account exit_to_app Login Contact feedback Customer Feedback Company business_center About Us camera Photo Wall Score Board GitHub OWASP Juice Shop v17.2.0 menu OWASP Juice Shop close search account_circle Account language EN All Products Apple Juice (1000ml) 1.99¤ Apple Pomace 0.89¤ Banana Juice (1000ml) 1.99¤ Only 1 left Best Juice Shop Salesman Artwork 5000¤ Carrot Juice (1000ml) 2.99¤ Eggfruit Juice (500ml) 8.99¤ Fruit Press 89.99¤ Green Smoothie 1.99¤ Only 1 left Juice Shop \"Permafrost\" 2020 Edition 9999.99¤ Lemon Juice (500ml) 2.99¤ Only 3 left Melon Bike (Comeback-Product 2018 Edition) 2999¤ Sold Out OWASP Juice Shop \"King of the Hill\" Facemask 13.49¤ Items per page: 12 1 – 12 of 36 Welcome to OWASP Juice Shop! Being a web application with a vast number of intended security vulnerabilities, the OWASP Juice Shop is supposed to be the opposite of a best practice or template application for web developers: It is an awareness, training, demonstration and exercise tool for security risks in modern web applications. The OWASP Juice Shop is an open-source project hosted by the non-profit Open Worldwide Application Security Project (OWASP) and is developed and maintained by volunteers. Check out the link below for more information and documentation on the project. https://owasp-juice.shop school Help getting started visibility_off Dismiss Click for more information Open side menu Choose language Launch a tutorial to get you started hacking the Juice Shop.",
+    "forms": [],
+    "links": [
+      "https://juice-shop.herokuapp.com/#/login",
+      "https://juice-shop.herokuapp.com/#/contact",
+      "https://juice-shop.herokuapp.com/#/about",
+      "https://juice-shop.herokuapp.com/#/photo-wall",
+      "https://juice-shop.herokuapp.com/#/score-board",
+      "https://juice-shop.herokuapp.com/redirect?to=https://github.com/juice-shop/juice-shop"
+    ]
+  },
+  {
+    "url": "https://juice-shop.herokuapp.com/redirect",
+    "title": "TypeError: Cannot read properties of undefined (reading 'includes')",
+    "content": "TypeError: Cannot read properties of undefined (reading 'includes') OWASP Juice Shop (Express ^4.21.0) 500 TypeError: Cannot read properties of undefined (reading 'includes') at Object.isRedirectAllowed (/app/build/lib/insecurity.js:149:34) at /app/build/routes/redirect.js:14:22 at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5) at next (/app/node_modules/express/lib/router/route.js:149:13) at Route.dispatch (/app/node_modules/express/lib/router/route.js:119:3) at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5) at /app/node_modules/express/lib/router/index.js:284:15 at Function.process_params (/app/node_modules/express/lib/router/index.js:346:12) at next (/app/node_modules/express/lib/router/index.js:280:10) at /app/build/routes/verify.js:171:5 at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5) at trim_prefix (/app/node_modules/express/lib/router/index.js:328:13) at /app/node_modules/express/lib/router/index.js:286:9 at Function.process_params (/app/node_modules/express/lib/router/index.js:346:12) at next (/app/node_modules/express/lib/router/index.js:280:10) at /app/build/routes/verify.js:105:5 at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5) at trim_prefix (/app/node_modules/express/lib/router/index.js:328:13) at /app/node_modules/express/lib/router/index.js:286:9 at Function.process_params (/app/node_modules/express/lib/router/index.js:346:12) at next (/app/node_modules/express/lib/router/index.js:280:10) at logger (/app/node_modules/morgan/index.js:144:5)",
+    "forms": [],
+    "links": []
+  }
+]

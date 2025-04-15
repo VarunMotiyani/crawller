@@ -1,0 +1,16 @@
+crawl4ai
+streamlit
+python-dotenv
+beautifulsoup4
+requests
+selenium
+chromadb
+openai
+rich
+webdriver-manager
+pydantic
+langgraph
+langchain
+langchain-openai
+langchain-core
+playwright 
